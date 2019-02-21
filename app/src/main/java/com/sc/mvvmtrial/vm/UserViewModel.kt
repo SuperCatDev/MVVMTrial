@@ -11,8 +11,7 @@ class UserViewModel(var userId: Int) : ViewModel() {
     var name = MutableLiveData<String>()
 
     init {
-        // Here you could use the ID to get the user info from the DB or remote server
-        name.value = "Felipe"
+        name.value = "Start"
     }
 }
 
@@ -20,7 +19,7 @@ fun CoroutineScope.launchUpdateSomeShit(vm: UserViewModel) {
     launch {
         var counter = 0
         while (true) {
-            Log.e("CoroutineScope", "Iteration $counter")
+            Log.i("[launchUpdateSomeShit]", "Iteration $counter")
             delay(2000)
             vm.name.value = counter.toString()
             ++counter
